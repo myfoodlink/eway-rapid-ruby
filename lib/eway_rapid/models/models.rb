@@ -290,6 +290,12 @@ module EwayRapid
       # The URL of the merchant's logo to display on the Responsive Shared Page
       attr_accessor :logo_url
 
+      # Set to true to create a token customer when the transaction is complete
+      attr_accessor :save_customer
+
+      # An eWAY-issued ID that represents the Token customer that was loaded or created for this transaction (if applicable)
+      attr_accessor :token_customer_id
+
       alias_method :customer_read_only?, :customer_read_only
       alias_method :checkout_payment?, :checkout_payment
       alias_method :verify_customer_phone?, :verify_customer_phone
