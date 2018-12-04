@@ -13,6 +13,7 @@ module EwayRapid
           convert = Convert::CustomerToInternalCustomer.new(false)
           request.customer = convert.do_convert(input)
           request.customer_ip = input.customer_device_ip
+          request.secured_card_data = input.secured_card_data
           request.method = Constants::CREATE_TOKEN_CUSTOMER_METHOD
           request.transaction_type = Enums::TransactionType::MOTO
           request
