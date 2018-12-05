@@ -32,7 +32,11 @@ module EwayRapid
             request.transaction_type = input.transaction_type || ''
             request.secured_card_data = input.secured_card_data
             request.method = if input.capture
-                               Enums::RequestMethod::PROCESS_PAYMENT
+                               if input.customer && (input.customer.token_customer_id || input.save_customer)
+                                 Enums::RequestMethod::TOKEN_PAYMENT
+                               else
+                                 Enums::RequestMethod::PROCESS_PAYMENT
+                               end
                              else
                                Enums::RequestMethod::AUTHORISE
                              end
