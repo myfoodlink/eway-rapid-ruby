@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'json', '~> 1.8.3'
+  spec.add_dependency 'json', '~> 2.1.0'
 
   # prevent dependency issues for Ruby 1.9
   if Gem::Version.new(RUBY_VERSION.dup) < Gem::Version.new('2.0.0')
